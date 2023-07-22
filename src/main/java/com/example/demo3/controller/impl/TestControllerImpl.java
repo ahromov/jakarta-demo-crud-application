@@ -1,13 +1,20 @@
 package com.example.demo3.controller.impl;
 
 import com.example.demo3.controller.TestController;
-import com.example.demo3.dto.TestDto;
 import com.example.demo3.service.TestService;
+import com.example.demo3.service.dto.TestDto;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
-import javax.ws.rs.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.PATCH;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -22,8 +29,8 @@ public class TestControllerImpl implements TestController {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Override
-    public TestDto find(@PathParam("id") String id) {
-        return testService.find(Long.parseLong(id));
+    public TestDto find(@PathParam("id") Long id) {
+        return testService.find(id);
     }
 
     @GET
@@ -51,7 +58,8 @@ public class TestControllerImpl implements TestController {
     @DELETE
     @Path("/{id}")
     @Override
-    public void delete(@PathParam("id") String id) {
-        testService.delete(Long.parseLong(id));
+    public void delete(@PathParam("id") Long id) {
+        testService.delete(id);
     }
+
 }

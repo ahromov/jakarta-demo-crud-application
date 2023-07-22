@@ -5,10 +5,8 @@ import com.example.demo3.repository.TestRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
 import java.util.List;
 
-@Transactional
 public class TestRepositoryImpl implements TestRepository {
 
     @PersistenceContext(name = "demo3-PersistenceUnit")

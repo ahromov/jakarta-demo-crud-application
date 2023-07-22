@@ -1,18 +1,19 @@
-package com.example.demo3.dto;
+package com.example.demo3.service.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Value;
 
-@Data
-@NoArgsConstructor
+@Value
+@NoArgsConstructor(force = true)
 @AllArgsConstructor
 @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TestDto {
 
-    private Long id;
-    private String text;
+    private final Long id;
+    private final String text;
+
 }

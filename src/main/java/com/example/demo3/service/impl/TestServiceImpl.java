@@ -1,19 +1,16 @@
 package com.example.demo3.service.impl;
 
-import com.example.demo3.dto.TestDto;
 import com.example.demo3.entity.TestEntity;
-import com.example.demo3.mapper.TestEntityMapper;
 import com.example.demo3.repository.TestRepository;
 import com.example.demo3.service.TestService;
+import com.example.demo3.service.dto.TestDto;
+import com.example.demo3.service.mapper.TestEntityMapper;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-
-@ApplicationScoped
 @Transactional
 public class TestServiceImpl implements TestService {
 
@@ -22,7 +19,7 @@ public class TestServiceImpl implements TestService {
 
     @Inject
     public TestServiceImpl(TestRepository testRepository,
-                           TestEntityMapper testEntityMapper) {
+            TestEntityMapper testEntityMapper) {
         this.testRepository = testRepository;
         this.testEntityMapper = testEntityMapper;
     }
@@ -60,4 +57,5 @@ public class TestServiceImpl implements TestService {
     public void delete(Long id) {
         testRepository.delete(id);
     }
+
 }
